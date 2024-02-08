@@ -1,0 +1,15 @@
+- hosts: webserver
+  user: centos
+  become: true
+  tasks:
+    - name: create directory
+      file:
+           path: /tmp/data
+           state: directory
+
+
+    - name:  copy file 
+      copy:
+          content: "Hello ansible\n"
+          dest: /tmp/data/hello.html
+
